@@ -40,4 +40,12 @@ public class Oftalmologo {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public Clinica getClinica() {
+        return clinica;
+    }
+
+    public void setClinica(Clinica clinica) {
+        this.clinica = clinica;
+    }
 }

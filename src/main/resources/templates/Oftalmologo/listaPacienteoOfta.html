@@ -6,30 +6,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
               crossorigin="anonymous">
-        <title>Pacient list</title>
+        <title>PacienteOfta list</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: blue">
-            <div class="container-fluid">
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" th:href="@{'/listaClinicas'}">Clinicas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/listarOftalmologos'}">Oftalmologos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Pacientes</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <div class="container">
-            <h2>Lista de Pacientes</h2>
+            <h2>Lista de Pacientes por Oftalmologo</h2>
 
 
 
@@ -41,11 +22,10 @@
                     <th>Genero</th>
                     <th>Diagnóstico</th>
                     <th>Fecha Cita</th>
-                    <th>Número Consultorio</th>
-                    <th></th>
-                    <th></th>
+                    <th>Número Habitación</th>
+
                 </tr>
-                <tr th:each="paciente,obj: ${listaPacientes}">
+                <tr th:each="paciente,obj: ${listaPacienteOfta}">
                     <td th:text="${obj.index+1}"> </td>
                     <td th:text="${paciente.nombre}"></td>
                     <td th:text="${paciente.edad}"></td>
@@ -55,8 +35,7 @@
 
                     <td th:text="${paciente.fecha_cita}"></td>
                     <td th:text="${paciente.numero_habitacion}"></td>
-                    <td><a th:href="@{'/EditarPaciente?id_paciente=' + ${paciente.id}}">Editar</a></td>
-                    <td><a th:href="@{'/DerivarPaciente?id_paciente=' + ${paciente.id}}">Derivar Paciente</a></td>
+
                 </tr>
             </table>
         </div>

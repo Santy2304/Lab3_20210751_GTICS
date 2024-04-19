@@ -89,4 +89,13 @@ public class Controller {
         return "Oftalmologo/listaOftalmologos";
     }
 
+
+    @GetMapping("/listarPacienteOfta")
+    public String listarPacienteOfta(@RequestParam("ofta_id") int ofta_id, Model model) {
+        List<Paciente> listaPacienteOfta = pacienteRepository.findByOftalmologo_id(ofta_id);
+        model.addAttribute("listaPacienteOfta", listaPacienteOfta);
+
+        return "Oftalmologo/listaPacienteoOfta";
+    }
+
 }

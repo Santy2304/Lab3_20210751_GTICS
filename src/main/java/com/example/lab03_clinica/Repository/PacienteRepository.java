@@ -13,6 +13,8 @@ import java.util.List;
 public interface PacienteRepository extends JpaRepository<Paciente, Integer> {
 
     List<Paciente> findByClinica_id(int clinica_id);
+    List<Paciente> findByOftalmologo_id(int ofta_id);
+
     @Transactional
     @Modifying
     @Query(nativeQuery = true, value = "update paciente set numero_habitacion=?1  where id = ?2")
